@@ -1,0 +1,27 @@
+:root {
+    font-size: 20px;
+}
+
+body {
+    display: grid;
+    grid-template-rows: 1fr 4fr;
+}
+
+.layout {
+    border-style: solid;
+    border-color: blue;
+    border-width: 1px;
+}
+
+#bottom {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+}
+
+#bottom-left{
+    display: flex;
+}
+
+#bottom-right{
+    display: flex;
+}
