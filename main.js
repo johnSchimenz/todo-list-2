@@ -40,10 +40,18 @@ createNewProject.addEventListener('click', () => {
     submitButton.textContent = 'Submit';
     selectBottomLeftContainer.appendChild(submitButton);
 
-    // Deletes Submit button once clicked
+    // Once clicked, specifies what the Submit button does
     const submitAction = document.querySelector('#submit');
     submitAction.addEventListener('click', () => {
+        
+        // Submit button deleted from the DOM
         selectBottomLeftContainer.removeChild(submitAction);
+
+        // Input box is deleted
+        selectBottomLeftContainer.removeChild(projectInput);
+
+        
+
     });
 
 });
