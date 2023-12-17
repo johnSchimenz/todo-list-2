@@ -30,6 +30,7 @@ createNewProject.addEventListener('click', () => {
     // Create input box to write the project's name
     const projectInput = document.createElement('input');
     projectInput.setAttribute('type', 'text');
+    projectInput.setAttribute('id', 'projectTitle');
     projectInput.setAttribute('placeholder', 'Anonymous Project');
     selectBottomLeftContainer.appendChild(projectInput);
 
@@ -46,6 +47,12 @@ createNewProject.addEventListener('click', () => {
         
         // Submit button deleted from the DOM
         selectBottomLeftContainer.removeChild(submitAction);
+
+        // Text from input box saved as a variable
+        const projectPosted = document.createElement('div');
+        projectPosted.setAttribute('id', projectInput.value);
+        projectPosted.textContent = projectInput.value;
+        selectBottomLeftContainer.appendChild(projectPosted);
 
         // Input box is deleted
         selectBottomLeftContainer.removeChild(projectInput);
