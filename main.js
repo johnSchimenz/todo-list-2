@@ -24,6 +24,7 @@ const ToDoFactory = (title, description, dueDate, priority, notes, checklist) =>
 // On click, input box displays on left side of webpage to add details for a new project
 const createNewProject = document.querySelector('#create-new-project');
 createNewProject.addEventListener('click', () => {
+
     // Select the bottom left container
     const selectBottomLeftContainer = document.querySelector('#bottom-left');
 
@@ -48,17 +49,17 @@ createNewProject.addEventListener('click', () => {
         // Submit button deleted from the DOM
         selectBottomLeftContainer.removeChild(submitAction);
 
-        // Text from input box saved as a variable
+        // Text from input box posted on left side of the webpage
         const projectPosted = document.createElement('div');
         projectPosted.setAttribute('id', projectInput.value);
         projectPosted.textContent = projectInput.value;
         selectBottomLeftContainer.appendChild(projectPosted);
 
+        // Add newest Project to Projects array
+        projectsArray.push(projectInput.value);
+        console.log(projectsArray);
+
         // Input box is deleted
         selectBottomLeftContainer.removeChild(projectInput);
-
-        
-
     });
-
 });
