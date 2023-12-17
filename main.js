@@ -96,21 +96,17 @@ createNewToDoItem.addEventListener('click', () => {
         toDoItemFieldset.appendChild(toDoItemInput);
     }
 
-    // Create Submit button so can confirm the project's name
+    // Create Submit button for ToDo item fieldset
     const submitButton = document.createElement('button');
     submitButton.setAttribute('type', 'submit');
     submitButton.setAttribute('id', 'submit')
     submitButton.textContent = 'Submit';
     toDoItemFieldset.appendChild(submitButton);
 
-/*
     // Once clicked, specifies what the Submit button does
     const submitAction = document.querySelector('#submit');
     submitAction.addEventListener('click', () => {
-        
-        // Submit button deleted from the DOM
-        selectBottomRightContainer.removeChild(submitAction);
-
+/*
         // Text from input box posted on left side of the webpage
         const projectPosted = document.createElement('div');
         projectPosted.setAttribute('id', projectInput.value);
@@ -120,9 +116,8 @@ createNewToDoItem.addEventListener('click', () => {
         // Add newest Project to Projects array
         projectsArray.push(projectInput.value);
         console.log(projectsArray);
-
-        // Input box is deleted
-        selectBottomRightContainer.removeChild(projectInput);
+*/
+        // fieldset for new ToDo item is deleted
+        selectBottomRightContainer.removeChild(toDoItemFieldset);
     });
-    */
 });
