@@ -103,7 +103,12 @@ createNewToDoItem.addEventListener('click', () => {
     // Once clicked, specifies what the Submit button does
     const submitAction = document.querySelector('#submit');
     submitAction.addEventListener('click', () => {
-/*
+
+        /*
+        // Create project using ProjectFactory and push it to projectsArray
+        const newestToDo = ProjectFactory(projectInput.value);
+        projectsArray.push(newestProject);
+
         // Text from input box posted on left side of the webpage
         const projectPosted = document.createElement('div');
         projectPosted.setAttribute('id', projectInput.value);
