@@ -28,7 +28,7 @@ const createNewProject = document.querySelector('#create-new-project');
 createNewProject.addEventListener('click', () => {
 
     // Select the bottom left container
-    const selectBottomLeftContainer = document.querySelector('#bottom-left');
+    const selectListOfProjectsContainer = document.querySelector('#list-of-projects-container');
 
     // Create input box to write the project's name
     const projectInput = document.createElement('input');
@@ -36,34 +36,31 @@ createNewProject.addEventListener('click', () => {
     projectInput.setAttribute('id', 'projectTitle');
     projectInput.setAttribute('name', 'projectTitle');
     projectInput.setAttribute('placeholder', 'Anonymous Project');
-    selectBottomLeftContainer.appendChild(projectInput);
+    selectListOfProjectsContainer.appendChild(projectInput);
 
     // Create Submit button so can confirm the project's name
     const submitButton = document.createElement('button');
     submitButton.setAttribute('type', 'submit');
     submitButton.setAttribute('id', 'submit')
     submitButton.textContent = 'Submit';
-    selectBottomLeftContainer.appendChild(submitButton);
+    selectListOfProjectsContainer.appendChild(submitButton);
 
     // Once clicked, specifies what the Submit button does
     const submitAction = document.querySelector('#submit');
     submitAction.addEventListener('click', () => {
-        
-        // Submit button deleted from the DOM
-        selectBottomLeftContainer.removeChild(submitAction);
+        // Resets the list of projects on left side so don't double-list a project
+        selectListOfProjectsContainer.textContent = '';
 
         // Create project using ProjectFactory and push it to projectsArray
         const newestProject = ProjectFactory(projectInput.value);
         projectsArray.push(newestProject);
 
-        // Text from input box posted on left side of the webpage
-        const projectPosted = document.createElement('div');
-        projectPosted.setAttribute('id', projectInput.value);
-        projectPosted.textContent = projectInput.value;
-        selectBottomLeftContainer.appendChild(projectPosted);
-
-        // Input box is deleted
-        selectBottomLeftContainer.removeChild(projectInput);
+        // Display projectsArray on left side of webpage
+        for (let i = 0; i < projectsArray.length; i++) {
+            const projectListed = document.createElement('div');
+            projectListed.textContent = projectsArray[i].name;
+            selectListOfProjectsContainer.appendChild(projectListed);
+        }
     });
 });
 
