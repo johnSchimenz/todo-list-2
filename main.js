@@ -5,7 +5,7 @@ const projectsArray = [];
 const ProjectFactory = (name) => {
     name = name;
     toDos = [];
-    return (name, toDos);
+    return {name, toDos};
 }
 
 // ToDo arguments array
@@ -52,15 +52,15 @@ createNewProject.addEventListener('click', () => {
         // Submit button deleted from the DOM
         selectBottomLeftContainer.removeChild(submitAction);
 
+        // Create project using ProjectFactory and push it to projectsArray
+        const newestProject = ProjectFactory(projectInput.value);
+        projectsArray.push(newestProject);
+
         // Text from input box posted on left side of the webpage
         const projectPosted = document.createElement('div');
         projectPosted.setAttribute('id', projectInput.value);
         projectPosted.textContent = projectInput.value;
         selectBottomLeftContainer.appendChild(projectPosted);
-
-        // Add newest Project to Projects array
-        projectsArray.push(projectInput.value);
-        console.log(projectsArray);
 
         // Input box is deleted
         selectBottomLeftContainer.removeChild(projectInput);
