@@ -36,7 +36,14 @@ createNewProject.addEventListener('click', () => {
     // Create Submit button so can confirm the project's name
     const submitButton = document.createElement('button');
     submitButton.setAttribute('type', 'submit');
+    submitButton.setAttribute('id', 'submit')
     submitButton.textContent = 'Submit';
     selectBottomLeftContainer.appendChild(submitButton);
+
+    // Deletes Submit button once clicked
+    const submitAction = document.querySelector('#submit');
+    submitAction.addEventListener('click', () => {
+        selectBottomLeftContainer.removeChild(submitAction);
+    });
 
 });
