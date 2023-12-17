@@ -80,6 +80,21 @@ createNewToDoItem.addEventListener('click', () => {
     toDoItemFieldset.setAttribute('id', 'todo-item-fieldset');
     selectBottomRightContainer.appendChild(toDoItemFieldset);
 
+    // Loop around to create labels and input fields for ToDo Item form
+    for (let i = 0; i < toDoArgumentsArray.length; i++) {
+        // Create label for input box
+        const toDoItemLabel = document.createElement('label');    
+        toDoItemLabel.setAttribute('for', toDoArgumentsArray[i]);
+        toDoItemLabel.textContent = toDoArgumentsArray[i];
+        toDoItemFieldset.appendChild(toDoItemLabel);
+    
+        // Create title input box
+        const toDoItemInput = document.createElement('input');    
+        toDoItemInput.setAttribute('type', 'text');
+        toDoItemInput.setAttribute('id', toDoArgumentsArray[i]);
+        toDoItemInput.setAttribute('name', toDoArgumentsArray[i]);
+        toDoItemFieldset.appendChild(toDoItemInput);
+    }
 
     /*
     // Create label for title input box
