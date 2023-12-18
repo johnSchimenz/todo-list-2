@@ -1,6 +1,9 @@
 // Projects array
 const projectsArray = [];
 
+// Current project variable
+let currrentProject;
+
 // Project factory
 const ProjectFactory = (name) => {
     name = name;
@@ -21,6 +24,8 @@ const ToDoFactory = (title, description, dueDate, priority, notes, checklist) =>
     checklist = checklist;
     return {title, description, dueDate, priority, notes, checklist};
 }
+
+// DOM logic - makes Projects clickable
 
 // DOM logic - New Project
 // On click, input box displays on left side of webpage to add details for a new project
@@ -48,6 +53,7 @@ createNewProject.addEventListener('click', () => {
     // Once clicked, specifies what the Submit button does
     const submitAction = document.querySelector('#submit');
     submitAction.addEventListener('click', () => {
+
         // Resets the list of projects on left side so don't double-list a project
         selectListOfProjectsContainer.textContent = '';
 
@@ -57,7 +63,7 @@ createNewProject.addEventListener('click', () => {
 
         // Display projectsArray on left side of webpage
         for (let i = 0; i < projectsArray.length; i++) {
-            const projectListed = document.createElement('div');
+            const projectListed = document.createElement('button');
             projectListed.textContent = projectsArray[i].name;
             selectListOfProjectsContainer.appendChild(projectListed);
         }
@@ -113,17 +119,16 @@ createNewToDoItem.addEventListener('click', () => {
             newestToDoItemArray.push(getToDoItemInput.value);
         }
 
-        // Creates ToDo object, but don't like that it's hard-coded
-        const trialtest = ToDoFactory(newestToDoItemArray[0],
+        // Creates ToDo object, but I don't like that it's hard-coded
+        const newestToDoItem = ToDoFactory(newestToDoItemArray[0],
             newestToDoItemArray[1],
             newestToDoItemArray[2],
             newestToDoItemArray[3],
             newestToDoItemArray[4],
             newestToDoItemArray[5],
             )
-        console.log(trialtest);
-
-        // Create newest ToDo Item using ToDoFactory
+        
+        // Add newest ToDo Item to a Project
 
         /*
         // Text from input box posted on left side of the webpage

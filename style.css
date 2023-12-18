@@ -17,3 +17,8 @@ body {
     display: grid;
     grid-template-columns: 1fr 5fr;
 }
+
+#list-of-projects-container {
+    display: flex;
+    flex-direction: column;
+}
