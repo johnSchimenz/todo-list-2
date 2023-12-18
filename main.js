@@ -25,8 +25,6 @@ const ToDoFactory = (title, description, dueDate, priority, notes, checklist) =>
     return {title, description, dueDate, priority, notes, checklist};
 }
 
-// DOM logic - makes Projects clickable
-
 // DOM logic - New Project
 // On click, input box displays on left side of webpage to add details for a new project
 const createNewProject = document.querySelector('#create-new-project');
@@ -65,8 +63,18 @@ createNewProject.addEventListener('click', () => {
         for (let i = 0; i < projectsArray.length; i++) {
             const projectListed = document.createElement('button');
             projectListed.textContent = projectsArray[i].name;
+            projectListed.setAttribute('class', 'project');
             selectListOfProjectsContainer.appendChild(projectListed);
         }
+
+        // Makes Projects clickable
+        const projects = document.querySelectorAll('.project');
+        projects.forEach((project) => {
+            project.addEventListener('click', () => {
+                console.log('this works');
+            });
+        });
+
     });
 });
 
