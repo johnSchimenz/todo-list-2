@@ -67,14 +67,20 @@ createNewProject.addEventListener('click', () => {
             selectListOfProjectsContainer.appendChild(projectListed);
         }
 
-        // Makes Projects clickable
+        // Make Projects clickable
         const projects = document.querySelectorAll('.project');
         projects.forEach((project) => {
             project.addEventListener('click', () => {
-                console.log('this works');
+
+                // Search projectsArray for name of the clicked project
+                for (let i = 0; i < projectsArray.length; i++) {
+                    if (project.textContent === projectsArray[i].name) {
+                        console.log(projectsArray[i].toDos);
+                        console.log(project);  
+                    }              
+                }
             });
         });
-
     });
 });
 
