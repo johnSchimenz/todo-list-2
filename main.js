@@ -104,10 +104,19 @@ createNewToDoItem.addEventListener('click', () => {
     const submitAction = document.querySelector('#submit');
     submitAction.addEventListener('click', () => {
 
+        // Create array to place values from ToDo item fieldset inputs
+        const newestToDoItemArray = [];
+
+        // Get ToDo item values from input boxes
+        for (let i = 0; i < toDoArgumentsArray.length; i++) {
+            const getToDoItemInput = document.querySelector('#' + toDoArgumentsArray[i]);
+            newestToDoItemArray.push(getToDoItemInput.value);
+        }
         /*
-        // Create project using ProjectFactory and push it to projectsArray
-        const newestToDo = ProjectFactory(projectInput.value);
-        projectsArray.push(newestProject);
+        // Create newest ToDo Item using ToDoFactory
+        for (let i = 0; i < toDoArgumentsArray.length; i++) {
+
+        }
 
         // Text from input box posted on left side of the webpage
         const projectPosted = document.createElement('div');
