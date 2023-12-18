@@ -25,6 +25,9 @@ const ToDoFactory = (title, description, dueDate, priority, notes, checklist) =>
     return {title, description, dueDate, priority, notes, checklist};
 }
 
+// DOM logic - List of all document.querySelectors
+
+
 // DOM logic - New Project
 // On click, input box displays on left side of webpage to add details for a new project
 const createNewProject = document.querySelector('#create-new-project');
@@ -71,14 +74,16 @@ createNewProject.addEventListener('click', () => {
         const projects = document.querySelectorAll('.project');
         projects.forEach((project) => {
             project.addEventListener('click', () => {
-
+                console.log("hello");
+                /*
                 // Search projectsArray for name of the clicked project
                 for (let i = 0; i < projectsArray.length; i++) {
                     if (project.textContent === projectsArray[i].name) {
-                        console.log(projectsArray[i].toDos);
-                        console.log(project);  
+                        const selectBottomRightContainer = document.querySelector('#bottom-right-container');
+                        selectBottomRightContainer.textContent = projectsArray[i].name;
+
                     }              
-                }
+                } */
             });
         });
     });
