@@ -75,10 +75,10 @@ createNewProject.addEventListener('click', () => {
                 // Search projectsArray for name of the clicked project and display toDos on right side
                 for (let i = 0; i < projectsArray.length; i++) {
                     if (project.textContent === projectsArray[i].name) {
-                        const selectBottomRightContainer = document.querySelector('#bottom-right');
+                        const selectToDosContainer = document.querySelector('#list-of-todos-container');
                         const allToDosCurrentProject = document.createElement('div');
                         allToDosCurrentProject.textContent = projectsArray[i].name;
-                        selectBottomRightContainer.appendChild(allToDosCurrentProject);
+                        selectToDosContainer.appendChild(allToDosCurrentProject);
                     }              
                 }
             });
