@@ -72,10 +72,19 @@ createNewProject.addEventListener('click', () => {
         projects.forEach((project) => {
             project.addEventListener('click', () => {
                 
-                // Search projectsArray for name of the clicked project and display toDos on right side
+                // Reset display of listed ToDos on right by deleting and recreating ToDos container
+                const selectBottomRightContainer = document.querySelector('#bottom-right');
+                const selectToDosContainer = document.querySelector('#list-of-todos-container');
+                selectBottomRightContainer.removeChild(selectToDosContainer);
+
+                const createToDosContainer = document.createElement('div');
+                createToDosContainer.setAttribute('id', 'list-of-todos-container');
+                createToDosContainer.textContent = project.textContent;
+                selectBottomRightContainer.appendChild(createToDosContainer);
+
+                // Search projectsArray for name of the clicked project and display Name (soon to be ToDos) on right side
                 for (let i = 0; i < projectsArray.length; i++) {
                     if (project.textContent === projectsArray[i].name) {
-                        const selectToDosContainer = document.querySelector('#list-of-todos-container');
                         const allToDosCurrentProject = document.createElement('div');
                         allToDosCurrentProject.textContent = projectsArray[i].name;
                         selectToDosContainer.appendChild(allToDosCurrentProject);
