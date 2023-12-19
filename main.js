@@ -25,9 +25,6 @@ const ToDoFactory = (title, description, dueDate, priority, notes, checklist) =>
     return {title, description, dueDate, priority, notes, checklist};
 }
 
-// DOM logic - List of all document.querySelectors
-
-
 // DOM logic - New Project
 // On click, input box displays on left side of webpage to add details for a new project
 const createNewProject = document.querySelector('#create-new-project');
@@ -74,16 +71,16 @@ createNewProject.addEventListener('click', () => {
         const projects = document.querySelectorAll('.project');
         projects.forEach((project) => {
             project.addEventListener('click', () => {
-                console.log("hello");
-                /*
-                // Search projectsArray for name of the clicked project
+                
+                // Search projectsArray for name of the clicked project and display toDos on right side
                 for (let i = 0; i < projectsArray.length; i++) {
                     if (project.textContent === projectsArray[i].name) {
-                        const selectBottomRightContainer = document.querySelector('#bottom-right-container');
-                        selectBottomRightContainer.textContent = projectsArray[i].name;
-
+                        const selectBottomRightContainer = document.querySelector('#bottom-right');
+                        const allToDosCurrentProject = document.createElement('div');
+                        allToDosCurrentProject.textContent = projectsArray[i].name;
+                        selectBottomRightContainer.appendChild(allToDosCurrentProject);
                     }              
-                } */
+                }
             });
         });
     });
@@ -129,7 +126,7 @@ createNewToDoItem.addEventListener('click', () => {
     const submitAction = document.querySelector('#submit');
     submitAction.addEventListener('click', () => {
 
-        // Create array to place values from ToDo item fieldset inputs
+        // Create array to put values from ToDo item fieldset inputs
         const newestToDoItemArray = [];
 
         // Get ToDo Item values from input boxes
