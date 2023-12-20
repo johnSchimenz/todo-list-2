@@ -2,7 +2,7 @@
 const projectsArray = [];
 
 // Current project variable
-let currrentProject;
+let currentProject;
 
 // Project factory
 const ProjectFactory = (name) => {
@@ -67,6 +67,9 @@ createNewProject.addEventListener('click', () => {
             selectListOfProjectsContainer.appendChild(projectListed);
         }
 
+        // Makes the currentProject the newest created project
+        currentProject = newestProject;
+
         // Make Projects clickable
         const projects = document.querySelectorAll('.project');
         projects.forEach((project) => {
@@ -82,15 +85,15 @@ createNewProject.addEventListener('click', () => {
                 createToDosContainer.textContent = project.textContent;
                 selectBottomRightContainer.appendChild(createToDosContainer);
 
-                // Search projectsArray for name of the clicked project and display Name (soon to be ToDos) on right side
+                // Search projectsArray for name of the clicked project and display ToDos on right side
                 for (let i = 0; i < projectsArray.length; i++) {
                     if (project.textContent === projectsArray[i].name) {
                         const allToDosCurrentProject = document.createElement('div');
-                        allToDosCurrentProject.textContent = projectsArray[i].name;
+                        allToDosCurrentProject.textContent = projectsArray[i].toDos;
                         selectToDosContainer.appendChild(allToDosCurrentProject);
 
                         // Makes newly created project the currentProject
-                        currrentProject = projectsArray[i];
+                        currentProject = projectsArray[i];
                     }              
                 }
             });
@@ -156,22 +159,14 @@ createNewToDoItem.addEventListener('click', () => {
             newestToDoItemArray[5],
             )
         
-        // Add newest ToDo Item to the currentProject
-        console.log(currrentProject);
-        currrentProject.toDos.push(newestToDoItem);
-        console.log (currrentProject);
+        // Add newest ToDo Item to the currentProject and update projectsArray
+        currentProject.toDos.push(newestToDoItem);
+        for (let i = 0; i < projectsArray.length; i++) {
+            if (currentProject.name === projectsArray[i].name) {
+                projectsArray[i] = currentProject;
+            }
+        }
 
-        /*
-        // Text from input box posted on left side of the webpage
-        const projectPosted = document.createElement('div');
-        projectPosted.setAttribute('id', projectInput.value);
-        projectPosted.textContent = projectInput.value;
-        selectBottomRightContainer.appendChild(projectPosted);
-
-        // Add newest Project to Projects array
-        projectsArray.push(projectInput.value);
-        console.log(projectsArray);
-*/
         // fieldset for new ToDo item is deleted
         selectBottomRightContainer.removeChild(toDoItemFieldset);
     });
