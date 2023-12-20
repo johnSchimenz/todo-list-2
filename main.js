@@ -71,7 +71,7 @@ createNewProject.addEventListener('click', () => {
         const projects = document.querySelectorAll('.project');
         projects.forEach((project) => {
             project.addEventListener('click', () => {
-                
+
                 // Reset display of listed ToDos on right by deleting and recreating ToDos container
                 const selectBottomRightContainer = document.querySelector('#bottom-right');
                 const selectToDosContainer = document.querySelector('#list-of-todos-container');
@@ -88,6 +88,9 @@ createNewProject.addEventListener('click', () => {
                         const allToDosCurrentProject = document.createElement('div');
                         allToDosCurrentProject.textContent = projectsArray[i].name;
                         selectToDosContainer.appendChild(allToDosCurrentProject);
+
+                        // Makes newly created project the currentProject
+                        currrentProject = projectsArray[i];
                     }              
                 }
             });
@@ -153,7 +156,10 @@ createNewToDoItem.addEventListener('click', () => {
             newestToDoItemArray[5],
             )
         
-        // Add newest ToDo Item to a Project
+        // Add newest ToDo Item to the currentProject
+        console.log(currrentProject);
+        currrentProject.toDos.push(newestToDoItem);
+        console.log (currrentProject);
 
         /*
         // Text from input box posted on left side of the webpage
