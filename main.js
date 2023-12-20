@@ -167,6 +167,8 @@ createNewToDoItem.addEventListener('click', () => {
             }
         }
 
+        console.log(currentProject);
+
         // fieldset for new ToDo item is deleted
         selectBottomRightContainer.removeChild(toDoItemFieldset);
     });
